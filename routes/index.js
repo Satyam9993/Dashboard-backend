@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Data = require('../models/Data')
 
+const { 
+    Login,
+    SignIn
+} = require('../controller/Auth');
+
 router.get('/data', async (req, res) => {
     Data.find({}).then(data => {
         res.status(200).send({ data: data })
@@ -35,5 +40,8 @@ router.put('/data1', async (req, res) => {
         res.status(402).send({ err: err })
     });
 })
+
+router.post('/login', Login)
+router.post('/signin', SignIn)
 
 module.exports = router;

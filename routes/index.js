@@ -15,7 +15,6 @@ router.get('/data', async (req, res) => {
     });
 })
 
-
 router.put('/filter', async (req, res) => {
     const {
         end_year,
